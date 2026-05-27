@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <script src="https://static.zohocdn.com/zp5/widgets/zpwidgetsdk.min.js"></script>
+    <script>
+    window.onload = function () {
+      // initialize the widget, before invoking any js sdk method
+      // Additionally, please edit the form name wisely.
+      ZOHO.embeddedApp.init().then(function() {
+          ZOHO.People.API.getFormRecord({formName:"employee",recordId:"148192000000247001"}).then(function(recordData){
+            console.log(recordData);
+            document.getElementById("Get_API_Response").innerHTML = "Get API response: " + JSON.stringify(recordData);
+
+          });
+      });
+    }       
+  </script>
+  </head>
+  <body>
+    <h2>This is a sample widget to get form record.</h2>
+
+    <p id ="Get_API_Response"></p>
+  </body>
+</html>
